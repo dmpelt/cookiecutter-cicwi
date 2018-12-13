@@ -4,12 +4,16 @@
 """The setup script."""
 
 from setuptools import setup, find_packages
+import os.path
 
 with open('README.md') as readme_file:
     readme = readme_file.read()
 
 with open('CHANGELOG.md') as history_file:
     history = history_file.read()
+
+with open(os.path.join('{{ cookiecutter.project_slug }}','VERSION')) as version_file:
+    version = version_file.read().strip()
 
 requirements = [ ]
 
@@ -32,7 +36,6 @@ dev_requirements = [
     'sphinx_rtd_theme',
     'recommonmark',
     # Other
-    'bumpversion',
     'watchdog',
     'coverage',
     {% if cookiecutter.use_pytest == 'y' -%}
@@ -81,6 +84,6 @@ setup(
     tests_require=test_requirements,
     extras_require={ 'dev': dev_requirements },
     url='https://github.com/{{ cookiecutter.github_username }}/{{ cookiecutter.project_slug }}',
-    version='{{ cookiecutter.version }}',
+    version=version,
     zip_safe=False,
 )
