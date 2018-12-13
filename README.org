@@ -15,7 +15,6 @@ project.
 * Features
 
 - Documentation with Sphinx
-- Versioning with bumpversion
 - Conda packaging
 
 * Quickstart
@@ -66,9 +65,7 @@ Then:
 9. Update documentation
    1. make docs
 10. Commit code
-11. Create release with bumpversion
-    1. =bumpversion minor=
-    2. =bumpversion patch=
+11. Update version in =VERSION= file
 12. Push to github
 13. Create release on GitHub
 14. Create GitHub pages documentation
